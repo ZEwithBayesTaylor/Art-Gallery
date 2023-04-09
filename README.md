@@ -1,4 +1,4 @@
-### ArtTrackr
+### ArtGalleryTracker
 
 Description of implementation versus proposal:
 We implemented all the features that we specified in our project proposal.
