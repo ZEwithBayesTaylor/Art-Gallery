@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ArtTrackr</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+</head>
+<body>
+<h1>ArtTrackr</h1>
+<div class="search-container">
+    <form action="/search" method="post">
+        <div class="search">
+            <input type="text" name="query" placeholder="Search for art item" required>
+            <button type="submit">SEARCH</button>
+        </div>
+        <div class="filters">
+            <label for="title">title</label>
+            <input type="checkbox" id="title" name="title" checked>
+            <label for="artist">artist</label>
+            <input type="checkbox" id="artist" name="artist" checked>
+        </div>
+    </form>
+</div>
+<form action="/add_artist" method="post">
+    <button type="submit">Add Artist</button>
+</form>
+
+<form action="/add_artwork" method="post">
+    <button type="submit">Add Artwork</button>
+</form>
+
+
+
+<script src="{{ url_for('static', filename='scripts/index.js') }}"></script>
+</body>
+
+</html>

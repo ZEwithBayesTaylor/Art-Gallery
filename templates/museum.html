@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtTrackr</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: darkblue;
+        }
+
+        h2 {
+            text-align: center;
+            color: darkblue;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: lightblue;
+            color: black;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to {{ museum[1] }}!</h1>
+<h2>Location: {{ museum[2] }}</h2>
+<h3>Featured Artworks:</h3>
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Artist</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for artwork in artworks %}
+        <tr>
+            <td><a href="/artwork?title={{ artwork[0] }}">{{ artwork[0] }}</a></td>
+            <td>{{ artwork[1] }}</td>
+            <td>
+                {% if artwork[2] %}
+                    <a href="/artist?name={{ artwork[2] }}">{{ artwork[2] }}</a>
+                {% else %}
+                    {{ artwork[2] }}
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('index') }}">Back to search</a>
+</body>
+</html>

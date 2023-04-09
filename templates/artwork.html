@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artwork Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .artwork-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        h1, h2, h3, p {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Artwork Info</h1>
+    <div class="artwork-info">
+        <h1>Title: {{ result[0] }}</h1>
+        {% if result[1] %}
+            <h2>Artist: <a href="/artist?name={{ result[1] }}">{{ result[1] }}</a></h2>
+        {% else %}
+            <h2>Artist: {{ result[1] }}</h2>
+        {% endif %}
+        {% if result[2] %}
+            <h2>Museum: <a href="/museum?name={{ result[2] }}">{{ result[2] }}</a></h2>
+        {% else %}
+            <h3>Museum: {{ result[2] }}</h3>
+        {% endif %}
+        <h3>Location: {{ result[3] }}</h3>
+        <p>Year: {{ result[4] }}</p>
+        <p>Medium: {{ result[5] }}</p>
+        <p>Description: {{ result[6] }}</p>
+    </div>
+</div>
+<a href="{{ url_for('index') }}">Back to search</a>
+</body>
+
+</html>

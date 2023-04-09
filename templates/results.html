@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ArtTrackr</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h1>Search Results of "{{ query }}"</h1>
+<table>
+    <thead>
+    <tr>
+        {% for head in heads %}
+            <th>{{ head }}</th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for result in results %}
+        <tr>
+            <td><a href="/artwork?title={{ result[0] }}">{{ result[0] }}</a></td>
+            <td>{{ result[1] }}</td>
+            <td>
+                {% if result[2] %}
+                    <a href="/artist?name={{ result[2] }}">{{ result[2] }}</a>
+                {% else %}
+                    {{ result[2] }}
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('index') }}">Back to search</a>
+</body>
+</html>

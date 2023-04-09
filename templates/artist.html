@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .artist-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        h1, h2, p {
+            margin-bottom: 15px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<h1>Artist Info</h1>
+    <div class="artist-info">
+        <h1>Name: {{ result[0] }}</h1>
+        <h2>Birth Place: {{ result[1] }}</h2>
+        <p>Date of Birth: {{ result[2] }}</p>
+        <p>Date of Death: {{ result[3] }}</p>
+    </div>
+    <p>Artworks:</p>
+    <table>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Medium</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for artwork in artworks %}
+            <tr>
+            <td><a href="/artwork?title={{ artwork[0] }}">{{ artwork[0] }}</a></td>
+            <td>{{ artwork[1] }}</td>
+            <td>{{ artwork[2] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<a href="{{ url_for('index') }}">Back to search</a>
+</body>
+
+</html>

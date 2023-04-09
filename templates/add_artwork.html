@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Artwork</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 50px;
+        }
+
+        form {
+            width: 50%;
+            background-color: white;
+            margin: 50px auto;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #555;
+        }
+
+        input, select {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            width: auto;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Add an Artwork</h1>
+<form action="/submit_artwork" method="post">
+    <label for="title">Artwork Title:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="artist">Artist:</label>
+    <select name="artist" id="artist" required>
+        <option value="" disabled selected>Select an artist</option>
+        {% for artist in artists %}
+            <option value="{{ artist[0] }}">{{ artist[1] }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="year">Year:</label>
+    <input type="text" id="year" name="year" required pattern="^-?\d{1,4}$"
+           title="Please enter a valid year (e.g., -500 for 500 BC, 1900 for 1900 AD)">
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="4" required
+              style="box-sizing: border-box; width: 100%; margin: 0 auto; padding: 10px; font-size: 16px; border: 1px solid #ddd; border-radius: 3px; display: block;"></textarea>
+
+    <label for="medium">Medium:</label>
+    <input type="text" id="medium" name="medium" required>
+
+    <input type="submit" value="Submit">
+</form>
+<a href="{{ url_for('index') }}">Back to search</a>
+
+</body>
+</html>

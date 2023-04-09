@@ -1,0 +1,125 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    background-color: #f1f1f1;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+p {
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #0069d9;
+}
+
+button:first-of-type {
+    background-color: #28a745;
+}
+
+button:first-of-type:hover {
+    background-color: #218838;
+}
+
+button:last-of-type {
+    background-color: #dc3545;
+}
+
+button:last-of-type:hover {
+    background-color: #c82333;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.search-container input[type="text"] {
+    flex: 1;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    /*width: calc(25% - 10px);*/
+}
+
+.search-container button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #0069d9;
+}
+
+.add-artist-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+form label {
+    flex-basis: 100%;
+    margin-bottom: 5px;
+}
+
+form input[type="text"] {
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    flex-grow: 1;
+}
+
+.filters {
+    /*display: flex;*/
+    width: fit-content;
+}
+
+.search {
+    width: 100%;
+    display: flex;
+}
