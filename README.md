@@ -1,9 +1,5 @@
 ### ArtTrackr
 
-PostgreSQL account: yz4429@cs4111-instance
-
-URL: http://34.75.68.224:8111/
-
 Description of implementation versus proposal:
 We implemented all the features that we specified in our project proposal.
 There is a case-sensitive search function for available artworks within the database, that
